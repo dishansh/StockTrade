@@ -1,9 +1,19 @@
 package com.hackerrank.stocktrade.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Trade {
-    private Long id;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Trade implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -2824620874805070559L;
+	@Id
+	private Long id;
     private String type;
     private User user;
     private String symbol;
