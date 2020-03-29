@@ -3,8 +3,12 @@ package com.hackerrank.stocktrade.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Trade implements Serializable{
@@ -15,10 +19,14 @@ public class Trade implements Serializable{
 	@Id
 	private Long id;
     private String type;
+    
+    @OneToOne(cascade=CascadeType.ALL)
     private User user;
+    
     private String symbol;
     private Integer shares;
     private Float price;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
     private Timestamp timestamp;
     
     public Trade() {

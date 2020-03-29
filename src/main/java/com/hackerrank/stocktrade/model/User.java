@@ -1,6 +1,17 @@
 package com.hackerrank.stocktrade.model;
 
-public class User {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8973603590566300777L;
+	@Id
     private Long id;
     private String name;
     
